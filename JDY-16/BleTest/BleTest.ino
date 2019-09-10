@@ -1,22 +1,16 @@
-String comdata = "";
-
+byte read_dat;
 void setup()
  {
      Serial.begin(9600);
+     Serial.println("Ble Test");
  }
 
 void loop()
  {
-  //  Serial.println("Hello");
      while (Serial.available() > 0)  
      {
-         comdata += char(Serial.read());
+         read_dat = Serial.read();
          delay(2);
-        // Serial.println(comdata);
-     }
-     if (comdata.length() > 0)
-     {
-         Serial.println(comdata);
-         comdata = "";
+         Serial.write(read_dat);
      }
  }
